@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿#nullable disable
+using Microsoft.EntityFrameworkCore;
 using PokemonReview.Models;
 
 namespace PokemonReview.Data
