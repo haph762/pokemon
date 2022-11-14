@@ -1,4 +1,5 @@
 ﻿using PokemonReview.Data;
+using PokemonReview.Dto;
 using PokemonReview.Interfaces;
 using PokemonReview.Models;
 
@@ -60,6 +61,12 @@ namespace PokemonReview.Repository
         public ICollection<Pokemon> GetPokemons()
         {
             return _context.Pokemon.OrderBy(p => p.Id).ToList();
+        }
+
+        public Pokemon GetPokemonTrimToUpper(PokemonDto pokemonCreate)
+        {
+            return GetPokemons().Where(c => c.Name.Trim().ToUpper() == pokemonCreate.Name.TrimEnd().ToUpper())
+                .FirstOrDefault();
         }
 
         public bool PokemonExists(int pokeId)
